@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mark_down_cheat_sheet.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="1-headings">1-Headings</h1>
+<p>How to give headings in markdown file?</p>
+<h1 id="heading-1">Heading 1</h1>
+<h2 id="heading-2">Heading 2</h2>
+<h3 id="heading-3">Heading 3</h3>
+<h4 id="heading-4">Heading 4</h4>
+<h6 id="and-so-on">and so on.</h6>
+<h1 id="2--block-of-words">2- block of words</h1>
+<p>normal text in markdown</p>
+<blockquote>
+<p>This is a special text</p>
+<p>This  is aspecial text</p>
+</blockquote>
+<h1 id="3--line-break">3- line break</h1>
+<p>\ for line break or double eneter
+This is 40 days lon Data science course with python AKA
+python_ka_chilla_with_babaammar.<br>
+this is second line</p>
+<h1 id="4--cobine-two-things">4- cobine two things</h1>
+<p>block of words and heading combine</p>
+<blockquote>
+<h2 id="heading-2">- heading 2</h2>
+</blockquote>
+<h1 id="5--face-of-text">5- face of text</h1>
+<p><strong>bold</strong></p>
+<p><em>italic</em></p>
+<p><em><strong>bold and italic</strong></em></p>
+<p>or you can use other symbols
+_(underscore)</p>
+<p><strong>bold</strong></p>
+<p><em>italic</em></p>
+<h1 id="6--bullets-points-lists">6- bullets points/ lists</h1>
+<ul>
+<li>
+<p>day1</p>
+</li>
+<li>
+<p>day2</p>
+</li>
+<li>
+<p>day3</p>
+</li>
+<li>
+<p>day4</p>
+</li>
+<li>
+<p>day5</p>
+<ul>
+<li>day 5a</li>
+<li>day 5b
+<ul>
+<li>sub list(anything)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>day6
+= day7</p>
+</li>
+</ul>
+<blockquote>
+<p>numbering of list</p>
+</blockquote>
+<ol>
+<li>day1</li>
+<li>day2</li>
+<li>day3</li>
+<li>day4</li>
+<li>day5
+<ol>
+<li>day5a</li>
+<li>day5b</li>
+</ol>
+</li>
+<li>day6</li>
+</ol>
+<blockquote>
+<p>other way to point bullet  * or #</p>
+</blockquote>
+<ul>
+<li>one</li>
+</ul>
+<blockquote>
+<p><strong>using*or+</strong></p>
+</blockquote>
+<ul>
+<li>one</li>
+</ul>
+<h1 id="7-line-braek-or-page-break">7-line braek or page break</h1>
+<p>This is page 1.</p>
+<hr>
+<p>This is page 2.</p>
+<hr>
+<h1 id="8--link-and-hyperlink">8- link and hyperlink</h1>
+<p><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">https://numpy.org/doc/stable/user/absolute_beginners.html</a> (hyper link)</p>
+<p><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">link</a>
+(link)</p>
+<p><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">click here for link of numpy</a></p>
+<p>This whole course is <a href="https://numpy.org/doc/stable/user/absolute_beginners.html">here</a>.</p>
+<h2 id="9--images-and-figures-with-link">9- images and figures with link</h2>
+<p>to join this course scan this QR code.
+<a href="qr.PNG">QR</a></p>
+<blockquote>
+<p>how to comment a markdown line?  and its shortcuts assignment</p>
+</blockquote>
+<p>online picture link:</p>
+<p><a href="https://www.google.com/search?q=codanics+picture&amp;tbm=isch&amp;ved=2ahUKEwi0mPWDiLH1AhV18eAKHc7QA_IQ2-cCegQIABAA&amp;oq=codanics+picture&amp;gs_lcp=CgNpbWcQAzoECAAQQzoFCAAQgAQ6BggAEAcQHjoHCAAQsQMQQzoICAAQgAQQsQM6CwgAEIAEELEDEIMBOgYIABAIEB5Qk8AkWLbsJGDo8iRoAXAAeACAAYQEiAH-JpIBCjItMTAuNC4xLjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&amp;sclient=img&amp;ei=S1ThYfTGH_XigwfOoY-QDw&amp;rlz=1C1GCEA_enPK870PK870">codanics</a></p>
+<h1 id="10--adding-code-or-code-block">10- adding code or code block</h1>
+<p>To print print a string use <code>print(&quot;codanics&quot;)</code>
+<code>print(&quot;hello geocode&quot;)</code></p>
+<pre class="hljs"><code><div>x= 3+4
+y=2+7
+z=x+y
+</div></code></pre>
+<pre class="hljs"><code><div>x= <span class="hljs-number">3</span>+<span class="hljs-number">4</span>
+y=<span class="hljs-number">2</span>+<span class="hljs-number">7</span>
+z=x+y
+</div></code></pre>
+<blockquote>
+<p>this code will show color according to R syntax</p>
+</blockquote>
+<pre class="hljs"><code><div>x= <span class="hljs-number">3</span>+<span class="hljs-number">4</span>
+y=<span class="hljs-number">2</span>+<span class="hljs-number">7</span>
+z=x+y
+</div></code></pre>
+<h1 id="11--adding-tables">11- adding tables</h1>
+<table>
+<thead>
+<tr>
+<th>species</th>
+<th style="text-align:center">petal_lenght</th>
+<th style="text-align:right">sepal_lenght</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>virginca</td>
+<td style="text-align:center">19.4</td>
+<td style="text-align:right">13.5</td>
+</tr>
+<tr>
+<td>virginca</td>
+<td style="text-align:center">19.4</td>
+<td style="text-align:right">13.5</td>
+</tr>
+<tr>
+<td>virginca</td>
+<td style="text-align:center">19.4</td>
+<td style="text-align:right">13.5</td>
+</tr>
+</tbody>
+</table>
+<h1 id="12--table-of-content">12- table of content</h1>
+<p><a href="#1-headings">Headings</a><br>
+<a href="#2--block-of-words">block of word</a><br>
+<a href="#3--line-break">line break</a><br>
+<a href="#4--cobine-two-things">combine two things</a><br>
+<a href="#5--face-of-text">face of text</a><br>
+<a href="#6--bullets-points-lists">bullets points lists</a>
+<a href="#7-line-braek-or-page-break">line break or page break</a><br>
+<a href="#9--images-and-figures-with-link"> images and figures with links</a><br>
+<a href="#10--adding-code-or-code-block">adding codes or block</a><br>
+<a href="#11--adding-tables"> adding tables</a><br>
+<a href="#12--table-of-content">table of contents</a><br>
+<a href="#13--install-extensions"></a></p>
+<h1 id="13--install-extensions">13- install extensions</h1>
+<p><a href="https://www.google.com/search?q=backticks+in+i7+4+generation&amp;rlz=1C1GCEA_enPK870PK870&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=2ahUKEwinrtiujLH1AhUq7rsIHRGmA_UQ_AUoAXoECAEQAw&amp;biw=1231&amp;bih=502&amp;dpr=1.3">link</a></p>
+<p><a href="qr.png">image</a></p>
+<pre class="hljs"><code><div>image
+
+``
+
+
+Column A | Column B | Column C
+---------|----------|---------
+ A1 | B1 | C1
+ A2 | B2 | C2
+ A3 | B3 | C3
+
+
+
+Column A | Column B | Column C
+---------|----------|---------
+ A1 | B1 | C1
+ A2 | B2 | C2
+ A3 | B3 | C3
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></code></pre>
+
+</body>
+</html>
